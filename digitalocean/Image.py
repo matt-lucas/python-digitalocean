@@ -20,6 +20,14 @@ class Image(object):
    
         return data
 
+    def all(self):
+        """
+            Get all images
+        """
+        payload = {'client_id': self.client_id, 'api_key': self.api_key}
+        r = requests.get("https://api.digitalocean.com/images/", params=payload)
+        return r.json()
+
     def Destroy(self):
         """
             Destroy the image
